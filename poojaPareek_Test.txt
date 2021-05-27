@@ -1,0 +1,96 @@
+*******************************Question 1 : Answer**************************************************
+
+
+def sumOfList(lis):
+    
+    sum_of_list = 0   // for calculatin the sum of all numbers from the list
+
+    for num in lis:
+       sum_of_list += num
+   
+    return sum_of_list  
+
+
+
+#######creating a list that will contain n number of elements#######
+
+lis = list(map(int,input().split()))     // [3,2,1,5,11]
+print(sumOfList(lis))                   // output:22
+
+
+
+*********************************Question 2 : Answer*********************************************
+
+
+def findMaximun(d):
+ 
+    max_ele = 0      # Intitialize max
+    key_ele = ""
+    dic = {}  //for storing the maximum value in the dict
+
+    for key,value in d.items():
+         if value > max_ele:
+            max_ele = value
+            key_ele = key
+        
+     dic[key_ele] = max_ele
+     
+     return dic
+ 
+d = {"1":50,"2":60,"3":70}
+print(findMaximum(d))  //output:{"3":70}
+
+
+*******************************Question 3: Answer********************************************
+
+def maximumOneLength(arr):
+    
+    l = len(arr)
+    count = 0
+    max_length = 0
+    
+    for i in range(0,l):
+
+        if arr[i] == 0:                                  #Reset count when 0 is found
+             count = 0
+        else:                                            #Increment count when 1 is found and update maximum length when count is increased
+             count += 1
+             max_length = max(max_length,count)
+
+     return max_length    
+         
+arr = [0,0,0,1,1,1,0,0,0,1,1,0,1,1,1,1,0,0,1,1]
+print(maximumOneLength(arr))
+
+
+*************************************Question 4:Answer***************************************************
+First of all you need to change django defult database system.
+
+creating tables
+
+class Candidate(models.Model);
+      name = models.CharField(max_length= 50)
+      email = models.EmailField(max_length= 40)
+ 
+
+
+class Test_score(models.Model):
+      test_type = models.TextChoices('first_round', 'second_round',' third_round')
+      assign_score = models.IntegerField(max_value=10, min_value=1, choices=assign_score.choices)
+
+
+///after this we can insert data using django forms.py and views.py.and also we can use qureyset to insert data.
+
+///insert data from qurey set we wil open python shell
+
+python manage.py shell
+
+>>>form  appname.models import Candidate,Test_score
+
+a = Candidate(name='ram',email='ram123@gmail.com')
+a.save()
+
+b = Test_score('first_round'= 5, 'second_round'= 7,' third_round'=8)
+b.save()
+
+ 
